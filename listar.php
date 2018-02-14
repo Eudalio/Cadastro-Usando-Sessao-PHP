@@ -1,4 +1,11 @@
-
+<?php 
+  session_start();
+  require_once('estados.php');
+  $pessoas = [];
+  if (isset($_SESSION['cadastropessoal'])){
+    $pessoas = $_SESSION['cadastropessoal'];
+  }
+?>
 <!doctype html>
 <html lang="pt-BR">
   <head>
@@ -11,6 +18,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="css/starter-template.css" rel="stylesheet">
@@ -36,7 +44,39 @@
     <main role="main" class="container">
 
       <div class="starter-template">
-       
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Nome</th>
+              <th scope="col">Idade</th>
+              <th scope="col">Telefone</th>
+              <th scope="col">Endereco</th>
+              <th scope="col">Cidade</th>
+              <th scope="col">Estado</th>
+              <th scope="col">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+<?php
+            foreach($pessoas as $i => $pessoa){
+              echo "<tr>";
+              echo "<th scope='row'>" . $i . "</th>";
+              foreach($pessoa as $atr => $value){
+                $uf = $estados[$pessoa['estado']];
+                if($atr == 'estado'){
+                  echo "<td>" . $uf . "</td>";
+                  break;
+                }
+                echo "<td>" . $value . "</td>";                
+              }
+              echo "<td><a class='btn btn-danger apagar' href='#'> <i class='fa fa-trash-o fa-lg'></i></a>" .
+              "<a class='btn btn-warning' href='#'> <i class='fa fa-pencil fa-lg'></i></a></td>";
+              echo "</tr>";
+            }
+?>
+          </tbody>
+        </table>
       </div>
 
     </main><!-- /.container -->

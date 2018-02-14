@@ -38,10 +38,9 @@
     <main role="main" class="container">
 
       <div class="starter-template">
-	  		<!-- TODO ACTION -->
-				<form action="" method="post" style="text-align: left;" >
+				<form action="salvar.php" method="post" style="text-align: left;" >
 					<div class="form-group">
-						<label for="nome">nome</label>
+						<label for="nome">Nome</label>
 						<input type="text" class="form-control" name="nome" placeholder="Nome da pessoa" id="nome" value="">
 					</div>
 					<div class="form-row">
