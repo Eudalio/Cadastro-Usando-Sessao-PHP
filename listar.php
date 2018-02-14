@@ -70,7 +70,7 @@
                 }
                 echo "<td>" . $value . "</td>";                
               }
-              echo "<td><a class='btn btn-danger apagar' href='#'> <i class='fa fa-trash-o fa-lg'></i></a>" .
+              echo "<td><a class='btn btn-danger apagar' href='apagar.php?id=" . $i . "'> <i class='fa fa-trash-o fa-lg'></i></a>" .
               "<a class='btn btn-warning' href='#'> <i class='fa fa-pencil fa-lg'></i></a></td>";
               echo "</tr>";
             }
