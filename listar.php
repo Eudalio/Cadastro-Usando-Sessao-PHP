@@ -64,14 +64,16 @@
               echo "<th scope='row'>" . $i . "</th>";
               foreach($pessoa as $atr => $value){
                 $uf = $estados[$pessoa['estado']];
+                if($atr == 'id')
+                  continue;
                 if($atr == 'estado'){
                   echo "<td>" . $uf . "</td>";
-                  break;
+                  continue;
                 }
                 echo "<td>" . $value . "</td>";                
               }
               echo "<td><a class='btn btn-danger apagar' href='apagar.php?id=" . $i . "'> <i class='fa fa-trash-o fa-lg'></i></a>" .
-              "<a class='btn btn-warning' href='#'> <i class='fa fa-pencil fa-lg'></i></a></td>";
+              "<a class='btn btn-warning' href='cadastrar.php?id=" . $i . "'> <i class='fa fa-pencil fa-lg'></i></a></td>";
               echo "</tr>";
             }
 ?>
